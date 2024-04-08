@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Товар</title>
+{% endblock %}
+
+{% block strong %}
+<strong>Товар</strong>
+{% endblock %}
+
+{% block body %}
+<main>
+  <section class="py-5 container">
+    <div class="row">
+      <div class="col-lg-6">
+        <img src="../static/img/jeans.jpg" class="img-fluid" alt="Фото товара">
+      </div>
+      <div class="col-lg-6">
+        <div class="row">
+          <div class="col-md-8 mx-auto">
+            <h2 class="fw-light">Название товара</h2>
+            <p class="lead text-body-secondary">Краткое описание товара</p>
+            <p class="lead text-body-secondary">Цена: $99.99</p>
+            <p class="lead text-body-secondary">Ткань: джинса</p>
+            <p class="lead text-body-secondary">Размеры: 40-52</p>
+            <button type="button" class="btn btn-primary">Добавить в корзину</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+{% endblock %}
