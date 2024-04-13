@@ -11,40 +11,38 @@
 
         <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
 
-          <form style="width: 23rem;">
+          <form action="/signup" method="post" style="width: 23rem;">
 
             <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign up</h3>
 
             <div class="form-outline mb-4">
-              <input type="text" id="form2Example18" class="form-control form-control-lg" />
-              <label class="form-label" for="form2Example18">Name</label>
+                <input type="text" id="form2Example18" class="form-control form-control-lg" name="username"/>
+                <label class="form-label" for="form2Example18">Name</label>
             </div>
 
             <div class="form-outline mb-4">
-              <input type="text" id="form2Example28" class="form-control form-control-lg" />
-              <label class="form-label" for="form2Example18">Surname</label>
+                <input type="text" id="form2Example28" class="form-control form-control-lg" name="surname"/>
+                <label class="form-label" for="form2Example18">Surname</label>
             </div>
 
             <div class="form-outline mb-4">
-              <input type="email" id="form2Example38" class="form-control form-control-lg" />
-              <label class="form-label" for="form2Example18">Email address</label>
+                <input type="email" id="form2Example38" class="form-control form-control-lg" name="email"/>
+                <label class="form-label" for="form2Example18">Email address</label>
             </div>
 
             <div class="form-outline mb-4">
-              <input type="password" id="form2Example48" class="form-control form-control-lg" />
-              <label class="form-label" for="form2Example28">Password</label>
+                <input type="password" id="form2Example48" class="form-control form-control-lg" name="password"/>
+                <label class="form-label" for="form2Example28">Password</label>
             </div>
 
             <div class="form-outline mb-4">
-              <input type="password" id="form2Example58" class="form-control form-control-lg" />
-              <label class="form-label" for="form2Example28">Repeat password</label>
+                <input type="password" id="form2Example58" class="form-control form-control-lg" name="repeat_password"/>
+                <label class="form-label" for="form2Example28">Repeat password</label>
             </div>
 
             <div class="pt-1_mb-4">
-              <button class="btn btn-info btn-lg btn-block" type="button">Sign up</button>
+                <button class="btn btn-info btn-lg btn-block" type="submit">Sign up</button>
             </div>
-
-
           </form>
 
         </div>
