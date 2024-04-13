@@ -1,4 +1,5 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
+import sqlite3
 
 app = Flask(__name__)
 
@@ -12,6 +13,26 @@ def index():
 @app.route('/log_in')
 def log_in():
     return render_template('log_in.html')
+
+
+@app.route('/signup', methods=['POST'])
+def signup():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+
+        conn = sqlite3.connect('online_store.db')
+        cursor = conn.cursor()
+
+        # Вставляем данные пользователя в таблицу
+        cursor.execute('INSERT INTO users (username, password) VALUES (?, ?)', (username, password))
+
+        # Сохраняем изменения и закрываем соединение
+        conn.commit()
+        conn.close()
+        return 'Пользователь успешно зарегистрирован!'
+    else:
+        return 'Метод не поддерживается!'
 
 
 @app.route('/registration')
