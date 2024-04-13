@@ -25,7 +25,7 @@ def signup():
         cursor = conn.cursor()
 
         # Вставляем данные пользователя в таблицу
-        cursor.execute('INSERT INTO users (username, password) VALUES (?, ?)', (username, password))
+        cursor.execute('INSERT INTO users (username, password, cart) VALUES (?, ?, ?)', (username, password, ''))
 
         # Сохраняем изменения и закрываем соединение
         conn.commit()
@@ -39,16 +39,21 @@ def signup():
 def registration():
     return render_template('registration.html')
 
+
 @app.route('/product')
 def product():
     return render_template('product.html')
 
+
 @app.route('/product1')
 def product1():
     return render_template('product1.html')
+
+
 @app.route('/product2')
 def product2():
     return render_template('product2.html')
+
 
 if __name__ == '__main__':
     app.run(port=8080, host='127.0.0.1')
