@@ -30,7 +30,7 @@ def signup():
         # Сохраняем изменения и закрываем соединение
         conn.commit()
         conn.close()
-        return 'Пользователь успешно зарегистрирован!'
+        return redirect(url_for('log_in'))
     else:
         return 'Метод не поддерживается!'
 
