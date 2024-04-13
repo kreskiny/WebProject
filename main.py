@@ -35,6 +35,29 @@ def signup():
         return 'Метод не поддерживается!'
 
 
+@app.route('/login', methods=['POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+
+        conn = sqlite3.connect('online_store.db')
+        cursor = conn.cursor()
+
+        # Проверяем совпадение логина и пароля в таблице пользователей
+        cursor.execute('SELECT * FROM users WHERE username = ? AND password = ?', (username, password))
+        user = cursor.fetchone()
+
+        conn.close()
+
+        if user:
+            return 'Вы успешно вошли в систему!'
+        else:
+            return 'Неверный логин или пароль!'
+    else:
+        return 'Метод не поддерживается!'
+
+
 @app.route('/registration')
 def registration():
     return render_template('registration.html')
