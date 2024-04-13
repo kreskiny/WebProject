@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 import sqlite3
 
 app = Flask(__name__)
@@ -51,9 +51,12 @@ def login():
         conn.close()
 
         if user:
-            return 'Вы успешно вошли в систему!'
+            # Если вход успешен, перенаправляем на страницу index
+            return redirect(url_for('index'))
         else:
-            return 'Неверный логин или пароль!'
+            # Если вход не успешен, возвращаем сообщение об ошибке
+            error_message = 'Неверный логин или пароль!'
+            return render_template('log_in.html', error_message=error_message)
     else:
         return 'Метод не поддерживается!'
 
