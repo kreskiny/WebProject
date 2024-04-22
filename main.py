@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for
+from flask_login import login_user, logout_user, login_required, current_user, LoginManager
 import sqlite3
 
 app = Flask(__name__)
@@ -79,6 +80,11 @@ def product1():
 @app.route('/product2')
 def product2():
     return render_template('product2.html')
+
+
+@app.route('/personal')
+def personal():
+    return render_template('personal.html')
 
 
 if __name__ == '__main__':

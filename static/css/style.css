@@ -17,3 +17,30 @@ img{
     width: 100px;
     height: 300px;
 }
+
+.rounded-circle{
+    width: 300px;
+    height: 300px;
+}
+
+.o-personal-data__data-block{
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    --layout-container-max-width: 1220px;
+    --window-scrollbar-width: 17px;
+    --vh: 7.48px;
+    --visual-h: 731.2000122070312px;
+    --min-height-content: 654px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    font-family: "OSTIN Sans", Arial, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 20px;
+    color: #111111;
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+}
