@@ -78,14 +78,18 @@ def logout():
 def inject_user():
     return dict(current_user=current_user)
 
+
 @app.route('/product')
 def product():
     return render_template('product.html')
 
+
 @app.route('/cart')
 def cart():
-    return render_template('cart.html')
-
+    if current_user.is_authenticated:
+        return render_template('cart.html')
+    else:
+        return render_template('cart_false.html')
 
 
 @app.route('/product1')
@@ -100,7 +104,10 @@ def product2():
 
 @app.route('/personal')
 def personal():
-    return render_template('personal.html')
+    if current_user.is_authenticated:
+        return render_template('personal.html')
+    else:
+        return render_template('personal_false.html')
 
 
 if __name__ == '__main__':
