@@ -11,30 +11,42 @@
 
         <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
 
-          <form action="/login" method="post" style="width: 23rem;">
+          <form action="" method="post" style="width: 23rem;">
 
-            <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Log in</h3>
+            <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Авторизация</h3>
 
             <div class="form-outline mb-4">
-              <input type="username" id="form2Example18" class="form-control form-control-lg" name="username"/>
-              <label class="form-label" for="form2Example18">Username</label>
+              {{ form.hidden_tag() }}
+              <p>
+              {{ form.email(class="form-control form-control-lg", type="email") }}
+              {% for error in form.email.errors %}
+                  <div id="form2Example18" class="alert alert-danger" role="alert">
+                      {{ error }}
+                 </div>
+              {% endfor %}
+              </p>
+              <label class="form-label" for="form2Example18">Email</label>
             </div>
 
             <div class="form-outline mb-4">
-              <input type="password" id="form2Example28" class="form-control form-control-lg" name="password"/>
-              <label class="form-label" for="form2Example28">Password</label>
+              <p>
+              {{ form.password(class="form-control form-control-lg", type="password") }}
+              {% for error in form.email.errors %}
+                  <div id="form2Example28" class="alert alert-danger" role="alert">
+                      {{ error }}
+                 </div>
+              {% endfor %}
+              </p>
+              <label class="form-label" for="form2Example28">Пароль</label>
             </div>
-
+            <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
             <div class="pt-1 mb-4">
-              <button class="btn btn-info btn-lg btn-block" type="submit">Login</button>
+              <button class="btn btn-info btn-lg btn-block" type="submit">Войти</button>
             </div>
+            <div>{{ message }}</div>
 
-            {% if error_message %}
-            <p class="text-danger">{{ error_message }}</p>
-            {% endif %}
-
-            <p class="small mb-5 pb-lg-2"><a class="text-muted" href="#!">Forgot password?</a></p>
-            <p>Don't have an account? <a href="#!" class="link-info">Register here</a></p>
+            <p class="small mb-5 pb-lg-2"><a class="text-muted" href="#!">Забыли пароль?</a></p>
+            <p>Don't have an account? <a href="/register" class="link-info">Зарегистрироваться здесь</a></p>
 
           </form>
 
