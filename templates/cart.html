@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Корзина</title>
+{% endblock %}
+
+{% block body %}
+<main>
+    <h1 style="margin-left: 70px;">Корзина</h1>
+    <div class="cart-items">
+        <div class="cart-item">
+            <div class="item-details">
+                <div class="item-image">
+                    <img src="static/img/top.jpg" alt="Product 1">
+                </div>
+                <div>
+                    <h3>Название товара</h3>
+                    <p>Цена: $10</p>
+                    <button class="remove-button">Удалить</button>
+                </div>
+            </div>
+        </div>
+        <div class="cart-item">
+            <div class="item-details">
+                <div class="item-image">
+                    <img src="static/img/top.jpg" alt="Product 2">
+                </div>
+                <div>
+                    <h3>Название товара</h3>
+                    <p>Цена: $10</p>
+                    <button class="remove-button">Удалить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

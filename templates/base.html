@@ -11,13 +11,24 @@
 <header>
   <div class="navbar navbar-dark bg-dark shadow-sm">
     <div class="container">
-      <a href="#" class="navbar-brand d-flex align-items-center">
-          {% block strong %}{% endblock%}
-
+      <a href="#" class="navbar-brand d-flex align-items-center" onclick="window.location.href='/'">
+          <strong>Главная</strong>
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      <div class="buttons-container">
+    <button class="navbar-toggler" type="button" onclick="window.location.href='/cart'">
+        <span>
+            <img src="static/img/icon1.svg" alt="Иконка 1">
+        </span>
+    </button>
+
+
+    <button class="navbar-toggler" type="button" onclick="window.location.href='/personal'">
+        <span>
+            <img src="static/img/icon2.svg" alt="Иконка 2">
+        </span>
+    </button>
+
+</div>
     </div>
   </div>
 </header>

@@ -2,7 +2,7 @@ from flask import Flask, render_template, redirect
 from data import db_session
 from data.users import User
 from forms.user import RegisterForm, LoginForm
-from flask_login import LoginManager, login_user, logout_user, login_required
+from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
@@ -73,9 +73,19 @@ def logout():
     logout_user()
     return redirect("/")
 
+
+@app.context_processor
+def inject_user():
+    return dict(current_user=current_user)
+
 @app.route('/product')
 def product():
     return render_template('product.html')
+
+@app.route('/cart')
+def cart():
+    return render_template('cart.html')
+
 
 
 @app.route('/product1')

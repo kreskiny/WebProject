@@ -44,3 +44,27 @@ img{
     -webkit-font-smoothing: antialiased;
     box-sizing: border-box;
 }
+.navbar { height: 60px; }
+.navbar-toggler img {height: 30px; width: 30px}
+.item-image {
+    float: left; /* Помещаем изображение слева */
+    margin-right: 20px; /* Добавляем отступ справа */
+    width: 100px; /* Задаем ширину изображения */
+    height: 100px; /* Задаем высоту изображения */
+    overflow: hidden; /* Обрезаем изображение, чтобы сделать его квадратным */
+}
+
+.item-details {
+    display: flex; /* Располагаем изображение и текст в одной строке */
+    align-items: center; /* Выравниваем элементы по вертикали */
+}
+
+.item-image {
+    margin-left: 70px; /* Добавляем отступ слева от изображения */
+    margin-right: 20px; /* Добавляем отступ справа от изображения */
+}
+
+.item-image img {
+    width: 150px; /* Задаем желаемую ширину изображения */
+    height: auto; /* Поддерживаем соотношение сторон */
+}
