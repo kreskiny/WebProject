@@ -1,4 +1,6 @@
-from flask import Flask, render_template, redirect
+import sqlite3
+
+from flask import Flask, render_template, redirect, request
 from data import db_session
 from data.users import User
 from forms.user import RegisterForm, LoginForm
@@ -108,6 +110,32 @@ def personal():
         return render_template('personal.html')
     else:
         return render_template('personal_false.html')
+
+
+@app.route('/edit', methods=['GET', 'POST'])
+def edit_data():
+    return render_template('edit_data.html')
+
+
+@app.route('/submit', methods=['GET', 'POST'])
+def submit():
+    name = request.form["name_ed"]
+    surname = request.form["surname_ed"]
+    dob = request.form["dob_ed"]
+    phone = request.form["phone_ed"]
+    adress = request.form["adress_ed"]
+    email = current_user.email
+
+    sqlite_connection = sqlite3.connect('db/online_store.db')
+    cursor = sqlite_connection.cursor()
+
+    sql_update_query = """Update users set name = ?, surname=?, date_of_birth=?, phone_number=?, adress=? where id = ?"""
+    data = (name, surname,dob, phone, adress, email)
+    cursor.execute(sql_update_query, data)
+    sqlite_connection.commit()
+
+    print(name, surname, email, dob, phone, adress)
+    return 'данные сохранены'
 
 
 if __name__ == '__main__':

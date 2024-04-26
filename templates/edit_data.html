@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+<link rel="stylesheet" href="../static/css/style.css"/>
+{% block title %}
+<title>Редактировать профиль</title>
+{% endblock %}
+
+{% block body %}
+<form action="/submit" method="post">
+<div class="container">
+		<div class="main-body">
+			<div class="row">
+				<div class="col-lg-4">
+					<div class="card">
+						<div class="card-body">
+							<div class="d-flex flex-column align-items-center text-center">
+								<img src="../static/img/female.png" alt="Admin" class="rounded-circle" width="150">
+								<div class="mt-3">
+									<h4>{{ current_user.name }} {{ current_user.surname }}</h4>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+
+				<div class="col-lg-8">
+					<div class="card">
+						<div class="card-body">
+
+							<div class="row mb-3">
+								<div class="col-sm-3">
+									<h6 class="mb-0">Имя</h6>
+								</div>
+								<div class="col-sm-9 text-secondary">
+									<input type="text" class="form-control" id= 'name_ed' name="name_ed" value= {{current_user.name}} >
+								</div>
+							</div>
+
+							<div class="row mb-3">
+								<div class="col-sm-3">
+									<h6 class="mb-0">Фамилия</h6>
+								</div>
+								<div class="col-sm-9 text-secondary">
+									<input type="text" class="form-control" name= 'surname_ed' value= {{current_user.surname}} >
+								</div>
+							</div>
+
+							<div class="row mb-3">
+								<div class="col-sm-3">
+									<h6 class="mb-0">Дата рождения</h6>
+								</div>
+								<div class="col-sm-9 text-secondary">
+									{% if not current_user.date_of_birth: %}
+									<input type="date" class="form-control" name= 'dob_ed' value= '' >
+									{% else %}
+									<input type="date" class="form-control" name= 'dob_ed' value= {{current_user.date_of_birth}} >
+									{% endif %}
+								</div>
+							</div>
+
+							<div class="row mb-3">
+								<div class="col-sm-3">
+									<h6 class="mb-0">Телефон</h6>
+								</div>
+								<div class="col-sm-9 text-secondary">
+									{% if not current_user.phone_number: %}
+									<input type="tel" class="form-control" name= 'phone_ed' value= '+7' >
+									{% else %}
+									<input type="tel" class="form-control" name= 'phone_ed' value= {{current_user.phone_number}} >
+									{% endif %}
+								</div>
+							</div>
+
+<!--							<div class="row mb-3">-->
+<!--								<div class="col-sm-3">-->
+<!--									<h6 class="mb-0">Email</h6>-->
+<!--								</div>-->
+<!--								<div class="col-sm-9 text-secondary">-->
+<!--									<input type="email" class="form-control" name= 'email_ed' value= {{current_user.email}} >-->
+<!--								</div>-->
+<!--							</div>-->
+
+							<div class="row mb-3">
+								<div class="col-sm-3">
+									<h6 class="mb-0">Адрес</h6>
+								</div>
+								<div class="col-sm-9 text-secondary">
+									{% if not current_user.date_of_birth: %}
+									<input type="text" class="form-control"  name= 'adress_ed' value= '' >
+									{% else %}
+									<input type="text" class="form-control" name= 'adress_ed' value= {{current_user.adress}} >
+									{% endif %}
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-sm-3"></div>
+								<div class="col-sm-9 text-secondary">
+									<input type="submit" class="btn btn-primary px-4" value="Save Changes">
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+</form>>
+
+
+{% endblock %}
