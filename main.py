@@ -101,6 +101,30 @@ def product1():
 def product2():
     return render_template('product2.html')
 
+@app.route('/product3')
+def product3():
+    return render_template('product3.html')
+
+@app.route('/product4')
+def product4():
+    return render_template('product4.html')
+
+@app.route('/product5')
+def product5():
+    return render_template('product5.html')
+
+@app.route('/product6')
+def product6():
+    return render_template('product6.html')
+
+@app.route('/product7')
+def product7():
+    return render_template('product7.html')
+
+@app.route('/product8')
+def product8():
+    return render_template('product8.html')
+
 
 @app.route('/personal')
 def personal():
