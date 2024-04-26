@@ -149,17 +149,23 @@ def submit():
     phone = request.form["phone_ed"]
     adress = request.form["adress_ed"]
     email = current_user.email
+    if not (name and surname and dob and phone and adress):
+        return 'Пожалуйста заполните все поля.'
 
-    sqlite_connection = sqlite3.connect('db/online_store.db')
-    cursor = sqlite_connection.cursor()
 
-    sql_update_query = """Update users set name = ?, surname=?, date_of_birth=?, phone_number=?, adress=? where id = ?"""
-    data = (name, surname,dob, phone, adress, email)
-    cursor.execute(sql_update_query, data)
-    sqlite_connection.commit()
+    try:
+        sqlite_connection = sqlite3.connect('db/online_store.db')
+        cursor = sqlite_connection.cursor()
 
-    print(name, surname, email, dob, phone, adress)
-    return 'данные сохранены'
+        sql_update_query = """UPDATE users SET name = ?, surname = ?, date_of_birth = ?, phone_number = ?, adress = ? WHERE email = ?"""
+        data = (name, surname, dob, phone, adress, email)
+        cursor.execute(sql_update_query, data)
+        sqlite_connection.commit()
+
+        print(name, surname, email, dob, phone, adress)
+        return 'Данные успешно сохранены'
+    except Exception as e:
+        return 'Ошибка в сохранении данных: ' + str(e)
 
 
 if __name__ == '__main__':

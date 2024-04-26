@@ -67,7 +67,7 @@
                       <h6 class="mb-0">Телефон</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      {% if not current_user.phone_numer: %}
+                      {% if not current_user.phone_number: %}
                         Заполните профиль
                       {% else %}
                       {{current_user.phone_number}}
@@ -99,7 +99,7 @@
                   <hr>
                   <div class="row">
                     <div class="col-sm-12">
-                      <a class="btn btn-info" target="__blank" href="/edit">Edit</a>
+                      <a class="btn btn-info" target="__blank" href="/edit">Добавить</a>
                       <a class="btn btn-danger" href="/logout">Выход</a>
                     </div>
                   </div>
