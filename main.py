@@ -168,5 +168,19 @@ def submit():
         return 'Ошибка в сохранении данных: ' + str(e)
 
 
+@app.route('/pay', methods=['POST', 'GET'])
+def pay():
+    if request.method == 'GET':
+        return render_template('pay.html')
+    elif request.method == 'POST':
+        print(request.form['name'])
+        print(request.form['email'])
+        print(request.form['address'])
+        print(request.form['phone'])
+        print(request.form['quantity'])
+        return "Заявка оформлена, скоро с вами свяжется оператор"
+
+
+
 if __name__ == '__main__':
     main()
