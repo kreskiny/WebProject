@@ -163,7 +163,7 @@ def submit():
         sqlite_connection.commit()
 
         print(name, surname, email, dob, phone, adress)
-        return 'Данные успешно сохранены'
+        return render_template('data_saved.html')
     except Exception as e:
         return 'Ошибка в сохранении данных: ' + str(e)
 
@@ -178,7 +178,7 @@ def pay():
         print(request.form['address'])
         print(request.form['phone'])
         print(request.form['quantity'])
-        return "Заявка оформлена, скоро с вами свяжется оператор"
+        return render_template('application_sub.html')
 
 
 
